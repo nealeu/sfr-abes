@@ -111,6 +111,7 @@ public class MapPanel extends javax.swing.JPanel
 
         Graphics2D g3 = (Graphics2D) g.create();
         g3.translate( tileBounds.x * scale, tileBounds.y * scale );
+        tileTemplate.setDoubleBuffered(false);
         tileTemplate.paint( g3 );
     }
 
