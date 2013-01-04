@@ -8,7 +8,6 @@ import java.awt.Shape;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import moniac.Human.Farmer;
@@ -106,7 +105,8 @@ public class Tile extends Agent
         return resources.get( name );
     }
 
-    public void update( float dt )
+    @Override
+	public void update( float dt )
     {
         super.update( dt );
         

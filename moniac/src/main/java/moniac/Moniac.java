@@ -4,12 +4,6 @@
  */
 package moniac;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 
 /**
@@ -39,7 +33,8 @@ public class Moniac extends javax.swing.JFrame
         
         simulator = new Thread()
         {
-            public void run()
+            @Override
+			public void run()
             {
                 for( month = 0; true; month += 1 )
                 {
@@ -48,7 +43,8 @@ public class Moniac extends javax.swing.JFrame
                     {
                         SwingUtilities.invokeAndWait( new Runnable()
                         {
-                            public void run()
+                            @Override
+							public void run()
                             {
                                 mapPanel.repaint();
                                 
@@ -94,7 +90,8 @@ public class Moniac extends javax.swing.JFrame
 
         mapPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
         {
-            public void mouseMoved(java.awt.event.MouseEvent evt)
+            @Override
+			public void mouseMoved(java.awt.event.MouseEvent evt)
             {
                 mapPanelMouseMoved(evt);
             }
@@ -114,7 +111,8 @@ public class Moniac extends javax.swing.JFrame
         pauseButton.setText("||");
         pauseButton.addActionListener(new java.awt.event.ActionListener()
         {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
+            @Override
+			public void actionPerformed(java.awt.event.ActionEvent evt)
             {
                 pauseButtonActionPerformed(evt);
             }
@@ -125,7 +123,8 @@ public class Moniac extends javax.swing.JFrame
         jButton3.setText("*2");
         jButton3.addActionListener(new java.awt.event.ActionListener()
         {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
+            @Override
+			public void actionPerformed(java.awt.event.ActionEvent evt)
             {
                 jButton3ActionPerformed(evt);
             }
@@ -134,7 +133,8 @@ public class Moniac extends javax.swing.JFrame
         jButton4.setText("/2");
         jButton4.addActionListener(new java.awt.event.ActionListener()
         {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
+            @Override
+			public void actionPerformed(java.awt.event.ActionEvent evt)
             {
                 jButton4ActionPerformed(evt);
             }
@@ -244,7 +244,8 @@ public class Moniac extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater( new Runnable()
         {
-            public void run()
+            @Override
+			public void run()
             {
                 new Moniac().setVisible( true );
             }

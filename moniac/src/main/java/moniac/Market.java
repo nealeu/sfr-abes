@@ -77,12 +77,14 @@ public class Market
             this.workersNeeded = workersNeeded;
         }
 
-        public void consider( Tile bidder )
+        @Override
+		public void consider( Tile bidder )
         {
             bid( bidder, bidder.getPopulation( Human.class ) ); // simple count of unemployed for now
         }
 
-        public void contract( Tile bidder )
+        @Override
+		public void contract( Tile bidder )
         {
             Farmer farmers = offerer.getFarmers();
             Farmer migrants = bidder.migrateFarmers( workersNeeded );

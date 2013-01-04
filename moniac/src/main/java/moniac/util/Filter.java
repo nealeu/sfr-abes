@@ -14,7 +14,8 @@ public interface Filter<T>
         
         public ClassFilter (Class clazz) { this.clazz = clazz; }
         
-        public boolean allow (Object e) { return clazz.isAssignableFrom( e.getClass() ); }
+        @Override
+		public boolean allow (Object e) { return clazz.isAssignableFrom( e.getClass() ); }
     }
     
     public class ClassSetFilter implements Filter
@@ -27,12 +28,14 @@ public interface Filter<T>
             for (Class clazz : classargs) classes.add (clazz);
         }
         
-        public boolean allow (Object e) { return classes.contains (e.getClass ()); }
+        @Override
+		public boolean allow (Object e) { return classes.contains (e.getClass ()); }
     }
     
     public static Filter ACCEPT_ALL = new Filter ()
     {
-        public boolean allow (Object e)
+        @Override
+		public boolean allow (Object e)
         {
             return true;
         }

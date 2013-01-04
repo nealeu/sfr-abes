@@ -4,8 +4,6 @@
  */
 package moniac;
 
-import java.awt.Graphics;
-
 /**
  *
  * @author dave

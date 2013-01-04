@@ -4,8 +4,6 @@
  */
 package moniac;
 
-import moniac.Human.Farmer;
-
 /** models anything that can be thought of as a finite, fixed or renewable, resource.
  *
  * @author dave
@@ -48,7 +46,8 @@ public abstract class Resource extends Agent
             super( name, quantity );
         }
         
-        public void update( float dt )
+        @Override
+		public void update( float dt )
         {
             float lossPerYear = 1;
             

@@ -33,7 +33,8 @@ public class FilteredCollection<E> extends AbstractCollection<E>
         this.original = original;
     }
     
-    public int size ()
+    @Override
+	public int size ()
     {
         int size = 0;
         for (Object obj : original)
@@ -43,24 +44,28 @@ public class FilteredCollection<E> extends AbstractCollection<E>
         return size;
     }
 
-    public boolean remove (Object o)
+    @Override
+	public boolean remove (Object o)
     {
         return original.remove (o);
     }
 
-    public boolean contains (Object o)
+    @Override
+	public boolean contains (Object o)
     {
         return filter.allow (o) && super.contains (o);
     }
     
-    public Iterator<E> iterator ()
+    @Override
+	public Iterator<E> iterator ()
     {
         return new Iterator ()
         {
             Iterator iterator = original.iterator ();
             E inhand;
             
-            public E next ()
+            @Override
+			public E next ()
             {
                 if (inhand != null)
                 {
@@ -81,7 +86,8 @@ public class FilteredCollection<E> extends AbstractCollection<E>
                     }
             }
             
-            public boolean hasNext ()
+            @Override
+			public boolean hasNext ()
             {
                 if (inhand != null)
                 {
@@ -103,7 +109,8 @@ public class FilteredCollection<E> extends AbstractCollection<E>
                     }
             }
             
-            public void remove ()
+            @Override
+			public void remove ()
             {
                 iterator.remove ();
             }            

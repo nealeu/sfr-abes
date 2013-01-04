@@ -20,7 +20,8 @@ public interface Rule< AGENT extends Agent >
     
     public abstract class AlwaysRule< AGENT extends Agent > implements Rule< AGENT >
     {
-        public float preCondition( AGENT agent )
+        @Override
+		public float preCondition( AGENT agent )
         {
             return ACTIVATE_ALWAYS;
         }

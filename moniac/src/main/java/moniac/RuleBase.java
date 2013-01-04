@@ -6,9 +6,6 @@ package moniac;
 
 import java.util.ArrayList;
 import java.util.List;
-import moniac.Human.Farmer;
-import moniac.Market.JobOffer;
-import moniac.Farm;
 import moniac.Resource.Harvest;
 import moniac.Rule.AlwaysRule;
 
@@ -39,7 +36,8 @@ public class RuleBase
     {
         float birthRate = 0.012f, deathRate = 0.009f;
 
-        public void enact( Human agent, float dt)
+        @Override
+		public void enact( Human agent, float dt)
         {
 //            if( agent.getAge() > 90 )
 //            {
@@ -60,7 +58,8 @@ public class RuleBase
     
     public static Rule eatOrStarve = new AlwaysRule< Human >() 
     {
-        public void enact( Human agent, float dt )
+        @Override
+		public void enact( Human agent, float dt )
         {
             int pop = agent.getPopulation();
             float food = agent.getFood();
@@ -97,7 +96,8 @@ public class RuleBase
     
     public static Rule divideHarvest = new AlwaysRule< Tile >()
     {
-        public void enact( Tile tile, float dt )
+        @Override
+		public void enact( Tile tile, float dt )
         {
             for( Resource resource : tile.getResources() )
             {

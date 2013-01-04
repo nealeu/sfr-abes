@@ -23,7 +23,8 @@ public abstract class Scenario
     
     public static Scenario scenario1 = new Scenario( "Scenario 1" )
     {
-        public void setup()
+        @Override
+		public void setup()
         {
             World.instance = new SimpleWorld( 10, 10 );
             
